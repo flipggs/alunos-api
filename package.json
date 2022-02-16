@@ -1,0 +1,30 @@
+{
+  "name": "alunos-api",
+  "version": "1.0.0",
+  "description": "API de alunos de exemplo com dados fixos",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flipggs/alunos-api.git"
+  },
+  "keywords": [
+    "api",
+    "nodejs"
+  ],
+  "author": "flipggs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flipggs/alunos-api/issues"
+  },
+  "homepage": "https://github.com/flipggs/alunos-api#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
