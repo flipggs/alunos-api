@@ -1,7 +1,9 @@
 const { isEmail } = require("validator");
+const { v4: uuidv5 } = require('uuid')
 let alunosData = require("./alunosData");
 
 let id = 4;
+let token = '';
 
 exports.getAlunos = (req, res) => {
     res.send(alunosData.alunos);
@@ -26,6 +28,30 @@ exports.postAlunos = (req, res) => {
     alunos.push(obj);
     res.send(rest);
 };
+
+exports.postLogin = (req, res) => {
+    const { body } = req;
+    let { alunos } = alunosData;
+
+    const user = alunos.find(item => item.password === body.password && item.email === body.email);
+
+    if (!user) {
+        return res.status(400).json({ status: 400, errors: ["Usuário ou senha inválidos"] });
+    }
+
+    const { id, nome, email } = user;
+    token = `${uuidv5()}${uuidv5()}${uuidv5()}${uuidv5()}${uuidv5()}`;
+    res.send({
+        token,
+        user: {
+            id, 
+            nome, 
+            email
+        }
+    });
+    
+
+}
 
 function validationsCreateUser(body, alunos) {
     const { nome, email, password } = body;
